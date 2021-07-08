@@ -71,10 +71,10 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"> cancelar </button>
 
-                        <form method="POST" action="{{route('post.destroy',$post->id)}}" data-action="{{ route('post.destroy',0)}}"   >
+                        <form id="formDelete" method="POST" action="{{ route('post.destroy',0)}}" data-action="{{ route('post.destroy',0)}}"   >
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-primary">Borrar</button>
+                            <button type="submit" class="btn btn-danger">Borrar</button>
                         </form>
 
                     </div>
@@ -85,17 +85,17 @@
 
         <script>
             $('#deleteModal').on('show.bs.modal', function (event) {
-                console.log("Modal abierto")
-                var button = $(event.relatedTarget) // Button that triggered the modal
-                var id = button.data('id') // Extract info from data-* attributes
-                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var button = $(event.relatedTarget) 
+                var id = button.data('id') 
+                console.log(id)
                 action = $('#formDelete').attr('data-action').slice(0,-1)
-                action += id
-                console.log (action)
+                action = action + id
+                console.log(action)
+                
                 $('#formDelete').attr('action',action)
-                var modal = $(this)
-                modal.find('.modal-title').text('Vas a borrar el POST: ' +  id)
+
+                var modal =$(this)
+                modal.find('.modal-title').text('Vas a borrar el post: '+ id)
             })
         </script>
 
