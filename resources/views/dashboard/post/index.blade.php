@@ -12,6 +12,9 @@
                             Titulo
                         </td>
                         <td>
+                            Categorias
+                        </td>
+                        <td>
                             Posteado
                         </td>
                         <td>
@@ -33,6 +36,9 @@
                         </td>
                         <td>
                             {{$post->title}}
+                        </td>
+                        <td>
+                            {{$post->category}}
                         </td>
                         <td>
                             {{$post->posted}}
