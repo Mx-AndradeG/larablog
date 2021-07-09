@@ -6,6 +6,8 @@ use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostPost;
+use App\Models\Category;
+
 
 class PostController extends Controller
 {
@@ -53,7 +55,7 @@ class PostController extends Controller
         return view("dashboard.post.show",["post"=> $post]);
     }
 
-    /**
+    /** 
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -61,7 +63,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view("dashboard.post.edit",["post"=> $post]);
+        $categories = Category::pluck('id','title');
+        return view("dashboard.post.edit",['post'=> $post , 'categories'=> $categories]);
     }
 
     /**
@@ -87,10 +90,5 @@ class PostController extends Controller
     {
         $post->delete();
         return back()->with('status','Eliminado de forma correcta');
-    }
-
-    public function miMetodo()
-    {
-        return "Hola Luis";
     }
 }
