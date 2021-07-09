@@ -38,7 +38,7 @@
                             {{$post->title}}
                         </td>
                         <td>
-                            {{$post->category}}
+                            {{$post->category->title}}
                         </td>
                         <td>
                             {{$post->posted}}
