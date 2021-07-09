@@ -11,7 +11,6 @@
 
                 <div class="form-group">
                 <label for="content">Categorias</label>
-                
                 <select class="form-control" name="category_id" id="category_id">
                         @foreach ($categories as $title => $id)
                             <option {{$post->category_id == $id ? 'selected="selected"' : '' }}  value="{{ $id }}" >{{$title}}</option>
@@ -20,13 +19,12 @@
                 </div>
 
                 <div class="form-group">
+
                         <label for="content">Posteado</label>
                         <select class="form-control" name="posted" id="posted">
                              @include('dashboard.partials.option-yes-not',['val' => $post->posted])  
                         </select>
                         </div>
-
-
 
 
                 <div class="form-group">
