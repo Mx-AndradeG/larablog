@@ -20,16 +20,18 @@
                 </div>
 
                 <div class="form-group">
-                        <label for="posted">Posteado</label>
+
+                        <label for="content">Posteado</label>
                         <select class="form-control" name="posted" id="posted">
-                             @include('dashboard.partials.option-yes-not',['val' => $post->posted ])  
+                             @include('dashboard.partials.option-yes-not',['val' => $post->posted])  
                         </select>
-                </div>
+                        </div>
+
 
                 <div class="form-group">
-                        <label for="content">Contenido</label>
-                        <textarea class="form-control" type="content" name ="content" rows="3" id="content"> {{ old('content',$post->content)}} </textarea>
-                </div>
-                
+                <label for="content">Contenido</label>
+                <textarea class="form-control" type="content" name ="content" rows="3" id="content"> {{ old('content',$post->content)}} </textarea>
+                </div> 
+
                 <button type="submit" value="enviar" class="btn btn-primary">Enviar</button>
         </div>
