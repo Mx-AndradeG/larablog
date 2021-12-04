@@ -11,6 +11,7 @@
 
                 <div class="form-group">
                 <label for="content">Categorias</label>
+                
                 <select class="form-control" name="category_id" id="category_id">
                         @foreach ($categories as $title => $id)
                             <option {{$post->category_id == $id ? 'selected="selected"' : '' }}  value="{{ $id }}" >{{$title}}</option>
@@ -31,5 +32,6 @@
                 <label for="content">Contenido</label>
                 <textarea class="form-control" type="content" name ="content" rows="3" id="content"> {{ old('content',$post->content)}} </textarea>
                 </div> 
+
                 <button type="submit" value="enviar" class="btn btn-primary">Enviar</button>
         </div>
